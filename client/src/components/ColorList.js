@@ -12,6 +12,8 @@ const ColorList = ({ colors, updateColors, displayColor}) => {
   const [colorToEdit, setColorToEdit] = useState(initialColor);
 
   const editColor = color => {
+    // once that editColor is invoked color id is granted, along with the other properties and values
+    
     setEditing(true);
     setColorToEdit(color);
   };
@@ -23,6 +25,7 @@ console.log(colorToEdit)
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
+
     console.log(colorToEdit.id)
     axiosWithAuth().put(`/colors/${colorToEdit.id}`, colorToEdit)
     .then(res => {
